@@ -23,7 +23,13 @@ Based on the above descriptions, please select your skin type using the dropdown
 <br/>
 <br/>
 <%= select_tag(:skin_type, options_for_select(SkinType.all.map { |st| [st.skin_type_number, st.id] })) %>
-
+<br/>
+<br/>
+If applicable, please enter the SPF (Sun Protection Factor) of your sunscreen
+<br/>
+<br/>
+<%= text_field_tag('SPF', nil, placeholder: 'Enter the SPF') %>
+<br/>
 
 <% end %>
 </p>
