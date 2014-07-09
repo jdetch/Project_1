@@ -12,4 +12,14 @@ class HomeController < ApplicationController
   def index
   end
 
+  # A method for manipulating the data; get the uv index and then use it
+  # Some methods are just for displaying data, others are for manipulating data
+  def calculate_uv_index
+    # Grab the params :zipcode that came from the form on the home/index page and pass it in
+    # Using the given zipcode, call the calc_uv_index method on the SunSession class and assign the value to the uv_index variable
+    uv_index = SunSession.calculate_uv_index(params[:zipcode])
+    # To the home index path, we are passing the variable that we found so that it can use the number
+    redirect_to home_index_path(:uv_index => uv_index)
+  end
+
 end

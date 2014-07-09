@@ -1,0 +1,16 @@
+Main page is here. Only seen after the user has logged in.
+
+
+<%= form_tag( { :action => 'calculate_uv_index' }) do %>
+  <%= text_field_tag(:zipcode, nil, placeholder: 'Enter your zip code') %>
+  <br />
+  <%= submit_tag( "Calculate UV Index For Your Location" ) %>
+<% end %>
+
+<p><% if params[:uv_index] %>
+Current UV Index: <%= params[:uv_index] %>
+<% end %>
+</p>
+
+
+
