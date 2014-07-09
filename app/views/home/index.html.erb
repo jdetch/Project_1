@@ -9,6 +9,22 @@ Main page is here. Only seen after the user has logged in.
 
 <p><% if params[:uv_index] %>
 Current UV Index: <%= params[:uv_index] %>
+<br/>
+<br/>
+
+<p>I – Light - Pale white; blond or red hair; blue eyes; freckles — Always burns, never tans</p>
+<p>II – Fair - White; fair; blond or red hair; blue, green or hazel eyes — Usually burns, tans minimally</p>
+<p>III – Medium - Cream white; fair with any hair or eye color; quite common — Sometimes mild burn, tans uniformly</p>
+<p>IV – Olive - Moderate brown; typical Mediterranean skin tone — Rarely burns, always tans well</p>
+<p>V – Brown - Dark brown; Middle Eastern skin types — Very rarely burns, tans very easily</p>
+<p>VI – Black - Deeply pigmented dark brown to black — Never burns, tans very easily</p>
+<br/>
+Based on the above descriptions, please select your skin type using the dropdown list below:
+<br/>
+<br/>
+<%= select_tag(:skin_type, options_for_select(SkinType.all.map { |st| [st.skin_type_number, st.id] })) %>
+
+
 <% end %>
 </p>
 
