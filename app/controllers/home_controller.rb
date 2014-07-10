@@ -22,4 +22,10 @@ class HomeController < ApplicationController
     redirect_to home_index_path(:uv_index => uv_index)
   end
 
+  def calculate_exposure_time
+    exposure_time = SunSession.calculate_exposure_time(params[:uv_index], params[:max_unprotected_exposure_time], params[:spf])
+    redirect_to home_index_path(:exposure_time => exposure_time)
+  end
+
+
 end

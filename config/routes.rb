@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post '/calculate_uv_index', to: 'home#calculate_uv_index'
 
+  post '/calculate_exposure_time', to: 'home#calculate_exposure_time'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

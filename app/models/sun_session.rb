@@ -7,4 +7,9 @@ class SunSession
     return uv_index
   end
 
+  def self.calculate_exposure_time(uv_index, max_unprotected_exposure_time, spf)
+    exposure_time = (max_unprotected_exposure_time.to_f / uv_index.to_f) * spf.to_f
+    return exposure_time.floor
+  end
+
 end
