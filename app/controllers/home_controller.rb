@@ -19,7 +19,6 @@ class HomeController < ApplicationController
       render :index
       return
     end
-
     # Grab the params :zipcode that came from the form on the home/index page and pass it in
     # Using the given zipcode, call the calc_uv_index method on the SunSession class and assign the value to the uv_index variable
     uv_index = SunSession.calculate_uv_index(params[:zipcode])
@@ -28,6 +27,10 @@ class HomeController < ApplicationController
   end
 
   def calculate_exposure_time
+    if !validate_spf(params[:spf])
+      render :index
+      return
+    end
     exposure_time = SunSession.calculate_exposure_time(params[:uv_index], params[:max_unprotected_exposure_time], params[:spf])
     redirect_to home_index_path(:exposure_time => exposure_time)
   end
@@ -44,7 +47,18 @@ class HomeController < ApplicationController
     else
       @error = "Please enter valid zip code"
     end
-    valid
+      valid
+  end
+
+  def validate_spf(spf)
+    # By default, the spf is invalid
+      valid = false
+    if spf.to_i.between?(1, 100)
+      valid = true
+    else
+      @error = "Please enter valid SPF"
+    end
+      valid
   end
 
 end
