@@ -12,4 +12,9 @@ class SunSession
     return exposure_time.floor
   end
 
+  def self.calculate_exposure_time_in_hours(exposure_time)
+    exposure_time_in_hours = (exposure_time.to_f / 60).round(1)
+    return exposure_time_in_hours
+  end
+
 end

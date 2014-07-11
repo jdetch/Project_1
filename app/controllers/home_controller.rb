@@ -35,6 +35,11 @@ class HomeController < ApplicationController
     redirect_to home_index_path(:exposure_time => exposure_time)
   end
 
+  def calculate_exposure_time_in_hours
+    exposure_time_in_hours = SunSession.calculate_exposure_time_in_hours(params[:exposure_time])
+    redirect_to home_index_path(:exposure_time_in_hours => exposure_time_in_hours)
+  end
+
 
   private
 
@@ -53,7 +58,7 @@ class HomeController < ApplicationController
   def validate_spf(spf)
     # By default, the spf is invalid
       valid = false
-    if spf.to_i.between?(1, 100)
+    if spf.to_i. between?(1, 100)
       valid = true
     else
       @error = "Please enter valid SPF"

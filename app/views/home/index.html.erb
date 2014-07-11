@@ -40,5 +40,16 @@
   <% end %>
   <br/>
 <% if params[:exposure_time] %>
-Recommended exposure time before getting burned (in minutes): <%= params[:exposure_time] %>
+  Recommended exposure time before getting burned (in minutes): <%= params[:exposure_time] %>
+  <br/>
+  <br/>
+  <%= form_tag( { :action => 'calculate_exposure_time_in_hours' }) do %>
+    <%= hidden_field_tag(:exposure_time, nil, :value => params[:exposure_time]) %>
+    <%= submit_tag( "View Exposure Time in Hours" ) %>
+  <% end %>
 <% end %>
+<% if params[:exposure_time_in_hours] %>
+  Recommended exposure time before getting burned (in hours): <%= params[:exposure_time_in_hours] %>
+<% end %>
+
+

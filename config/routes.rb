@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post '/calculate_exposure_time', to: 'home#calculate_exposure_time'
 
+  post '/calculate_exposure_time_in_hours', to: 'home#calculate_exposure_time_in_hours'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
