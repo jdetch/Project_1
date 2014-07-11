@@ -15,6 +15,11 @@ class HomeController < ApplicationController
   # A method for manipulating the data; get the uv index and then use it
   # Some methods are just for displaying data, others are for manipulating data
   def calculate_uv_index
+    if !validate_zipcode(params[:zipcode])
+      render :index
+      return
+    end
+
     # Grab the params :zipcode that came from the form on the home/index page and pass it in
     # Using the given zipcode, call the calc_uv_index method on the SunSession class and assign the value to the uv_index variable
     uv_index = SunSession.calculate_uv_index(params[:zipcode])
@@ -27,5 +32,19 @@ class HomeController < ApplicationController
     redirect_to home_index_path(:exposure_time => exposure_time)
   end
 
+
+  private
+
+
+  def validate_zipcode(zipcode)
+    # by default the zipcode is invalid
+      valid = false
+    if zipcode =~ /^\d{5}(?:[-\s]\d{4})?$/
+      valid = true
+    else
+      @error = "Please enter valid zip code"
+    end
+    valid
+  end
 
 end
