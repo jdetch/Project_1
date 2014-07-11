@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+}
