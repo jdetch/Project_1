@@ -1,5 +1,7 @@
-<h2>Welcome! Are you ready to block the sun?</h2>
-<h3>Follow the three simple steps below to calculate your recommended sun exposure! </h3>
+<div class="row">
+  <div class="small-12 small-centered columns">
+    <h2>Welcome! Are you ready to block the sun?</h2>
+    <h3>Follow the three simple steps below to calculate your recommended sun exposure! </h3>
 
 <% if @error %>
   <div id="error_explanation">
@@ -9,15 +11,14 @@
 
 <%= form_tag( { :action => 'calculate_uv_index' }) do %>
   <p>1. Please enter your zip code:</p>
-  <%= text_field_tag(:zipcode, nil, placeholder: 'Enter your zip code') %>
-  <br/>
-  <br/>
-  <%= submit_tag( "Calculate UV Index For Your Location" ) %>
+<div class="row">
+  <div class="small-3 columns end">
+  <p><%= text_field_tag(:zipcode, nil, placeholder: 'Enter your zip code') %></p>
+  </div>
+</div>
+  <p><%= submit_tag( "Calculate UV Index For Your Location" ) %></p>
 <% end %>
-  <br/>
-  Current UV Index: <%= params[:uv_index] %>
-  <br/>
-  <br/>
+  <p>Current UV Index: <%= params[:uv_index] %></p>
 <%= form_tag( { :action => 'calculate_exposure_time' }) do %>
   <%= hidden_field_tag(:uv_index, nil, :value => params[:uv_index]) %>
   <p>2. Based on the following descriptions, please select your skin type using the dropdown list below:</p>
@@ -27,29 +28,29 @@
   <p>IV – Olive - Moderate brown; typical Mediterranean skin tone — Rarely burns, always tans well</p>
   <p>V – Brown - Dark brown; Middle Eastern skin types — Very rarely burns, tans very easily</p>
   <p>VI – Black - Deeply pigmented dark brown to black — Never burns, tans very easily</p>
-  <br/>
-<%= select_tag(:max_unprotected_exposure_time, options_for_select(SkinType.all.map { |st| [st.skin_type_number, st.id, st.max_unprotected_exposure_time] })) %>
-  <br/>
-  <br/>
+<div class="row">
+  <div class="small-3 columns end">
+  <p><%= select_tag(:max_unprotected_exposure_time, options_for_select(SkinType.all.map { |st| [st.skin_type_number, st.id, st.max_unprotected_exposure_time] })) %></p>
+  </div>
+</div>
   <p>3. If applicable, please enter the SPF (Sun Protection Factor) of your sunscreen</p>
-  <br/>
-  <%= text_field_tag(:spf, nil, placeholder: 'Enter the SPF') %>
-  <br/>
-  <br/>
-  <%= submit_tag( "Calculate Exposure Time" ) %>
+<div class="row">
+  <div class="small-3 columns end">
+  <p><%= text_field_tag(:spf, nil, placeholder: 'Enter the SPF') %></p>
+  </div>
+</div>
+  <p><%= submit_tag( "Calculate Exposure Time" ) %></p>
   <% end %>
-  <br/>
 <% if params[:exposure_time] %>
-  Recommended exposure time before getting burned (in minutes): <%= params[:exposure_time] %>
-  <br/>
-  <br/>
+  <p>Recommended exposure time before getting burned (in minutes): <%= params[:exposure_time] %></p>
   <%= form_tag( { :action => 'calculate_exposure_time_in_hours' }) do %>
     <%= hidden_field_tag(:exposure_time, nil, :value => params[:exposure_time]) %>
-    <%= submit_tag( "View Exposure Time in Hours" ) %>
+    <p><%= submit_tag( "View Exposure Time in Hours" ) %></p>
   <% end %>
 <% end %>
 <% if params[:exposure_time_in_hours] %>
-  Recommended exposure time before getting burned (in hours): <%= params[:exposure_time_in_hours] %>
+  <p>Recommended exposure time before getting burned (in hours): <%= params[:exposure_time_in_hours] %></p>
 <% end %>
-
+</div>
+</div>
 
