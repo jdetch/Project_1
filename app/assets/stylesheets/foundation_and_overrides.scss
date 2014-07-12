@@ -365,7 +365,7 @@
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-// $button-function-factor: -20%;
+$button-function-factor: 20%;
 
 // We use these to control button border styles.
 // $button-border-width: 0px;
@@ -576,8 +576,8 @@ $input-focus-border-color: scale-color($green, $lightness: -40%);
 // $glowing-effect-color: $input-focus-border-color;
 
 // Select variables
-// $select-bg-color: #fafafa;
-// $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%);
+$select-bg-color: $blue;
+$select-hover-bg-color: scale-color($blue, $lightness: 20%);
 
 // Inline Lists
 
