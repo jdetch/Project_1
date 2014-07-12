@@ -16,7 +16,7 @@
   <%= text_field_tag(:zipcode, nil, placeholder: 'Enter your zip code') %>
   </div>
 </div>
-  <p><%= submit_tag( "Calculate UV Index For Your Location", class: "button" ) %></p>
+  <%= submit_tag( "Calculate UV Index For Your Location", class: "button" ) %>
 <% end %>
   <p>Current UV Index: <%= params[:uv_index] %></p>
 <%= form_tag( { :action => 'calculate_exposure_time' }) do %>
