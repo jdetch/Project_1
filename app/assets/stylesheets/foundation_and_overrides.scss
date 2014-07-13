@@ -530,10 +530,10 @@ $button-function-factor: 20%;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: rem-calc(14);
-$input-bg-color: $green;
-$input-focus-bg-color: scale-color($green, $lightness: 50%);
-$input-border-color: scale-color($green, $lightness: -20%);
-$input-focus-border-color: scale-color($green, $lightness: -40%);
+$input-bg-color: $purple;
+$input-focus-bg-color: scale-color($purple, $lightness: 50%);
+$input-border-color: scale-color($purple, $lightness: -20%);
+$input-focus-border-color: scale-color($purple, $lightness: -40%);
 // $input-border-style: solid;
 // $input-border-width: 1px;
 // $input-border-radius: $global-radius;
@@ -576,8 +576,8 @@ $input-focus-border-color: scale-color($green, $lightness: -40%);
 // $glowing-effect-color: $input-focus-border-color;
 
 // Select variables
-$select-bg-color: $blue;
-$select-hover-bg-color: scale-color($blue, $lightness: 20%);
+$select-bg-color: $purple;
+$select-hover-bg-color: scale-color($purple, $lightness: 20%);
 
 // Inline Lists
 

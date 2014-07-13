@@ -38,7 +38,11 @@ body {
 
 
 input.button {
-  background-color: $blue;
+  background-color: $orange;
+}
+
+.light-button {
+  background-color: $blue !important;
 }
 
 .login {
@@ -67,7 +71,21 @@ a {
 }
 
 .step-1, .step-2, .step-3, .step-4 {
-  height:900px;
+  height:450px;
+}
+
+.step {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.descriptions {
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.footer {
+  height: 100px;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
