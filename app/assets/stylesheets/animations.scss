@@ -1,3 +1,5 @@
+@import "settings";
+
 /*Sun animation from: http://codepen.io/Benedikte/pen/bIuGr*/
 /* the svg element */
 .svg-sun{
@@ -10,11 +12,11 @@
   -ms-transform-origin: center center;
   transform-origin:50% 50%;
 
--webkit-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--moz-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--o-animation:spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--ms-animation: spin 25s linear infinite, sun-glow 3s 0s ease-in-out infinite;
-animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
+-webkit-animation: spin 25s linear infinite, sun-glow 10s 0s linear infinite;
+-moz-animation: spin 25s linear infinite, sun-glow 10s 0s linear infinite;
+-o-animation:spin 25s linear infinite, sun-glow 10s 0s linear infinite;
+-ms-animation: spin 25s linear infinite, sun-glow 10s 0s ease-in-out infinite;
+animation: spin 25s linear infinite,sun-glow 10s 0s linear infinite;
 
 }
 /* the circle element in the svg itself */
@@ -25,29 +27,44 @@ animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
 }
 /* animation for the sun glowing effect */
 @-webkit-keyframes sun-glow {
-  0% { fill: #f1c40f; stroke:#f1c40f;}
-  50% { fill: #e67e22; stroke:#e67e22;}
-  100% { fill: #f1c40f; stroke:#f1c40f;}
+  0% { fill: $pink; stroke: $pink;}
+  20% { fill: $orange; stroke: $orange;}
+  40% { fill: $green; stroke: $green;}
+  60% { fill: $blue; stroke: $blue;}
+  80% { fill: $purple; stroke: $purple;}
+  100% { fill: $pink; stroke: $pink;}
 }
 @-moz-keyframes sun-glow {
-  0% { fill: #f1c40f; stroke:#f1c40f;}
-  50% { fill: #e67e22; stroke:#e67e22;}
-  100% { fill: #f1c40f; stroke:#f1c40f;}
+  0% { fill: $pink; stroke: $pink;}
+  20% { fill: $orange; stroke: $orange;}
+  40% { fill: $green; stroke: $green;}
+  60% { fill: $blue; stroke: $blue;}
+  80% { fill: $purple; stroke: $purple;}
+  100% { fill: $pink; stroke: $pink;}
 }
 @-o-keyframes sun-glow {
-  0% { fill: #f1c40f; stroke:#f1c40f;}
-  50% { fill: #e67e22; stroke:#e67e22;}
-  100% { fill: #f1c40f; stroke:#f1c40f;}
+  0% { fill: $pink; stroke: $pink;}
+  20% { fill: $orange; stroke: $orange;}
+  40% { fill: $green; stroke: $green;}
+  60% { fill: $blue; stroke: $blue;}
+  80% { fill: $purple; stroke: $purple;}
+  100% { fill: $pink; stroke: $pink;}
 }
 @-ms-keyframes sun-glow {
-  0% { fill: #f1c40f; stroke:#f1c40f;}
-  50% { fill: #e67e22; stroke:#e67e22;}
-  100% { fill: #f1c40f; stroke:#f1c40f;}
+  0% { fill: $pink; stroke: $pink;}
+  20% { fill: $orange; stroke: $orange;}
+  40% { fill: $green; stroke: $green;}
+  60% { fill: $blue; stroke: $blue;}
+  80% { fill: $purple; stroke: $purple;}
+  100% { fill: $pink; stroke: $pink;}
 }
 @keyframes sun-glow {
-  0% { fill: #f1c40f; stroke:#f1c40f;}
-  50% { fill: #e67e22; stroke:#e67e22;}
-  100% { fill: #f1c40f; stroke:#f1c40f;}
+  0% { fill: $pink; stroke: $pink;}
+  20% { fill: $orange; stroke: $orange;}
+  40% { fill: $green; stroke: $green;}
+  60% { fill: $blue; stroke: $blue;}
+  80% { fill: $purple; stroke: $purple;}
+  100% { fill: $pink; stroke: $pink;}
 }
 
 /* start spin animation */
