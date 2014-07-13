@@ -7,39 +7,51 @@
         <%= @error %>
       </div>
     <% end %>
-
-    <%= form_tag( { :action => 'calculate_uv_index' }) do %>
-      <h4>1. Please enter your zip code:</h4>
-      <div class="row">
-        <div class="small-3 columns end">
-          <%= text_field_tag(:zipcode, nil, placeholder: 'Enter your zip code') %>
+  </div>
+</div>
+    <div class="row">
+      <div class="step-1 small-6 columns">
+        <%= form_tag( { :action => 'calculate_uv_index' }) do %>
+          <h4>1. Please enter your zip code:</h4>
+          <div class="row">
+            <div class="small-5 columns end">
+              <%= text_field_tag(:zipcode, nil, placeholder: 'Enter your zip code') %>
+            </div>
+          </div>
+          <%= submit_tag( "Calculate UV Index For Your Location", class: "button" ) %>
+        <% end %>
+        <h4>Current UV Index: <%= params[:uv_index] %></h4>
+      </div>
+      <div class="step-2 small-6 columns">
+      <%= form_tag( { :action => 'calculate_exposure_time' }) do %>
+        <%= hidden_field_tag(:uv_index, nil, :value => params[:uv_index]) %>
+        <h4>2. Based on the following descriptions, please select your skin type using the dropdown list below:</h4>
+        <p>I – Light - Pale white; blond or red hair; blue eyes; freckles — Always burns, never tans</p>
+        <p>II – Fair - White; fair; blond or red hair; blue, green or hazel eyes — Usually burns, tans minimally</p>
+        <p>III – Medium - Cream white; fair with any hair or eye color; quite common — Sometimes mild burn, tans uniformly</p>
+        <p>IV – Olive - Moderate brown; typical Mediterranean skin tone — Rarely burns, always tans well</p>
+        <p>V – Brown - Dark brown; Middle Eastern skin types — Very rarely burns, tans very easily</p>
+        <p>VI – Black - Deeply pigmented dark brown to black — Never burns, tans very easily</p>
+        <div class="row">
+          <div class="small-3 columns end">
+            <%= select_tag(:max_unprotected_exposure_time, options_for_select(SkinType.all.map { |st| [st.skin_type_number, st.id, st.max_unprotected_exposure_time] })) %>
+          </div>
         </div>
       </div>
-      <%= submit_tag( "Calculate UV Index For Your Location", class: "button" ) %>
-    <% end %>
-    <h4>Current UV Index: <%= params[:uv_index] %></h4>
-    <%= form_tag( { :action => 'calculate_exposure_time' }) do %>
-      <%= hidden_field_tag(:uv_index, nil, :value => params[:uv_index]) %>
-      <h4>2. Based on the following descriptions, please select your skin type using the dropdown list below:</h4>
-      <p>I – Light - Pale white; blond or red hair; blue eyes; freckles — Always burns, never tans</p>
-      <p>II – Fair - White; fair; blond or red hair; blue, green or hazel eyes — Usually burns, tans minimally</p>
-      <p>III – Medium - Cream white; fair with any hair or eye color; quite common — Sometimes mild burn, tans uniformly</p>
-      <p>IV – Olive - Moderate brown; typical Mediterranean skin tone — Rarely burns, always tans well</p>
-      <p>V – Brown - Dark brown; Middle Eastern skin types — Very rarely burns, tans very easily</p>
-      <p>VI – Black - Deeply pigmented dark brown to black — Never burns, tans very easily</p>
-      <div class="row">
-        <div class="small-3 columns end">
-          <%= select_tag(:max_unprotected_exposure_time, options_for_select(SkinType.all.map { |st| [st.skin_type_number, st.id, st.max_unprotected_exposure_time] })) %>
-        </div>
-      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="step-3 small-6 columns">
       <h4>3. If applicable, please enter the SPF (Sun Protection Factor) of your sunscreen</h4>
       <div class="row">
-        <div class="small-3 columns end">
-          <%= text_field_tag(:spf, nil, placeholder: 'Enter the SPF') %>
+        <div class="small-4 columns end">
+          <%= text_field_tag(:spf, nil, placeholder: 'Enter your SPF') %>
         </div>
       </div>
       <%= submit_tag( "Calculate Exposure Time", class: "button" ) %>
     <% end %>
+  </div>
+  <div class="step-4 small-6 columns">
     <% if params[:exposure_time] %>
         <h4>Recommended exposure time before getting burned (in minutes): <%= params[:exposure_time] %></h4>
         <%= form_tag( { :action => 'calculate_exposure_time_in_hours' }) do %>

@@ -29,9 +29,13 @@ h1, h2 {
 }
 
 body, p {
-  background: $orange;
   font-weight: bold;
 }
+
+body {
+  background: $orange;
+}
+
 
 input.button {
   background-color: $blue;
@@ -44,6 +48,26 @@ input.button {
 
 a {
   color: $blue;
+}
+
+.step-1 {
+  background-color: $pink;
+}
+
+.step-2 {
+  background-color: $green;
+}
+
+.step-3 {
+  background-color: $blue;
+}
+
+.step-4 {
+  background-color: $purple;
+}
+
+.step-1, .step-2, .step-3, .step-4 {
+  height:900px;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
